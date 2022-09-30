@@ -1,3 +1,2 @@
 # DayTripGenerator
 
-First test commit
