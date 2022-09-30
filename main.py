@@ -1,23 +1,25 @@
 import random
 
-def random_destination ():
+def run_day_trip_generator():
     destinations = ["Atlanta","Houston","Miami","Los Angeles"]
-    rand_destination = random.choice(destinations)
-    return rand_destination
-
-def random_restaurant ():
     restaurants = ["Cafe Lucia","Cafe Intermezzo","The Tavern","Maggianos"]
-    rand_restaurant = random.choice(restaurants)
-    return rand_restaurant
-
-def random_transportation ():
     transportation = ["Private Jet","Commercial Plane","Car","Bus"]
-    rand_transporation = random.choice(transportation)
-    return rand_transporation
-
-def random_entertainment ():
     entertainment = ["Hiking","Ziplining","Live Music","Carnival"]
-    rand_entertainment = random.choice(entertainment)
-    return rand_entertainment
+    print("Welcome to your Random Day Trip Generator, Here is your Selected Day Trip! ")
+    print(f"Here is where you will be going: {generate_random_item(destinations)}")
+    print(f"Here is how you'll get there: {generate_random_item(transportation)}")
+    print(f"Here is a restaurant you should try: {generate_random_item(restaurants)}")
+    print(f"Look out for this entertainment while you're there!: {generate_random_item(entertainment)}")
+
+
+def generate_random_item(list_of_items):
+    rand_choice = random.choice(list_of_items)
+    return rand_choice
+
+
+
+run_day_trip_generator()
+
+
 
 
