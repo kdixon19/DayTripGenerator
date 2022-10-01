@@ -33,10 +33,11 @@ def day_trip_generator():
         current_trip = [dest_option, tran_option, rest_option, enter_option]
         full_trip_print(current_trip)
         satisfaction_confirm = satisfaction_generator()
+    print("Here is your completed Trip!")
+    full_trip_print(current_trip)
 
 #This prints my trip list depending on what list I send through
 def full_trip_print(options_list):
-    print("Here is your Selected Day Trip! ")
     print(f"Here is where you will be going: {options_list[0]}")
     print(f"Here is how you'll get there: {options_list[1]}")
     print(f"Here is a restaurant you should try: {options_list[2]}")
