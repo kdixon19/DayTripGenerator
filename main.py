@@ -2,8 +2,9 @@ import random
 
 print("Welcome to your Random Day Trip Generator!")
 
-def master_generator_function():
-    satisfaction_confirm = False
+#This is where the magic happens, This determines the day trip by running each code in the correct order
+def day_trip_generator():
+    satisfaction_confirm = False 
     dest_list = ["Atlanta","Houston","Miami","Los Angeles"]
     rest_list = ["Cafe Lucia","Cafe Intermezzo","The Tavern","Maggianos"]
     tran_list = ["Private Jet","Commercial Plane","Car","Bus"]
@@ -15,9 +16,9 @@ def master_generator_function():
     current_trip = [dest_option,tran_option,rest_option,enter_option]
     full_trip_print(current_trip)
     satisfaction_confirm = satisfaction_generator()
-    while satisfaction_confirm == False:
-        unwanted_input = input("Sorry to hear that, what would you like to change? The Destination, Restaurant, Transport, or Entertainment?: ")
-        if unwanted_input == "Destination" or unwanted_input == "destination":
+    while satisfaction_confirm == False: #This while loop will continue to loop until User is satisfied
+        unwanted_input = input("Sorry to hear that, what would you like to change? The Destination, Restaurant, Transport, or Entertainment?: ") #Gives the user the option to independently choose which part of the trip they dislike.
+        if unwanted_input == "Destination" or unwanted_input == "destination": 
             dest_list = remove_items_from_list(dest_list, dest_option)
             dest_option = generate_random_item(dest_list)
         elif unwanted_input == "Restaurant" or unwanted_input == "restaurant":
@@ -31,8 +32,7 @@ def master_generator_function():
             enter_option = generate_random_item(enter_list)
         current_trip = [dest_option, tran_option, rest_option, enter_option]
         full_trip_print(current_trip)
-        satisfaction_confirm = satisfaction_generator
-
+        satisfaction_confirm = satisfaction_generator()
 
 #This prints my trip list depending on what list I send through
 def full_trip_print(options_list):
@@ -56,12 +56,12 @@ def satisfaction_generator():
         print("Glad to help!")
         return True
 
-#This should remove items for me that the user is now satisfied with
+#This should remove items from lists sent through by user that are unwanted. It will remove the element that was chosen previously
 def remove_items_from_list(unwanted_list, unwanted_element):
-    new_list = unwanted_list.remove(unwanted_element)
-    return new_list
+    unwanted_list.remove(unwanted_element)
+    return unwanted_list
 
-master_generator_function()
+day_trip_generator()
 
 
 
